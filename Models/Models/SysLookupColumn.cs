@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Models.Models;
+
+public partial class SysLookupColumn
+{
+    public Guid Id { get; set; }
+
+    public DateTime? CreatedOn { get; set; }
+
+    public Guid? CreatedById { get; set; }
+
+    public DateTime? ModifiedOn { get; set; }
+
+    public Guid? ModifiedById { get; set; }
+
+    public Guid? SysLookupId { get; set; }
+
+    public string MetaPath { get; set; } = null!;
+
+    public int Position { get; set; }
+
+    public string Caption { get; set; } = null!;
+
+    public int Width { get; set; }
+
+    public Guid? SysOrderDirectionId { get; set; }
+
+    public string MetaCaption { get; set; } = null!;
+
+    public int ProcessListeners { get; set; }
+
+    public virtual SysLookup? SysLookup { get; set; }
+
+    public virtual SysOrderDirection? SysOrderDirection { get; set; }
+}
