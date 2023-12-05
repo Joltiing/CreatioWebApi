@@ -1,0 +1,50 @@
+<div>
+  <input type="radio" id="getAllUsers" name="method" value="getAllUsers">
+  <label for="getAllUsers">Получить всех</label><br>
+  <input type="radio" id="getUser" name="method" value="getUser">
+  <label for="getUser">Получить пользователя</label><br>
+  <input type="radio" id="createUser" name="method" value="createUser">
+  <label for="createUser">Создать пользователя</label><br>
+</div>
+
+<div id="getAllUsersDiv" style="display:none;">
+  <button (click)="getAllUsers()">Получить всех</button>
+</div>
+
+<div id="getUserDiv" style="display:none;">
+  <input [(ngModel)]="userId" placeholder="Введите ID пользователя">
+  <button (click)="getUser()">Получить пользователя</button>
+</div>
+
+<div id="createUserDiv" style="display:none;">
+  <form>
+    <label for="id">ID:</label><br>
+    <input [(ngModel)]="postId" type="text" id="id" name="id"><br>
+    <label for="name">Name:</label><br>
+    <input [(ngModel)]="postName" type="text" id="name" name="name"><br>
+    <label for="contactId">Contact ID:</label><br>
+    <input [(ngModel)]="postContact" type="text" id="contactId" name="contactId"><br>
+    <label for="accountId">Account ID:</label><br>
+    <input [(ngModel)]="postAccount" type="text" id="accountId" name="accountId"><br>
+    <label for="email">Email:</label><br>
+    <input [(ngModel)]="postEmail" type="email" id="email" name="email"><br>
+    <button (click)="postUser()">Создать пользователя</button>
+  </form>
+</div>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<script src="scripts.js" type="module"></script>
