@@ -5,6 +5,10 @@
   <label for="getUser">Получить пользователя</label><br>
   <input type="radio" id="createUser" name="method" value="createUser">
   <label for="createUser">Создать пользователя</label><br>
+  <input type="radio" id="deactivateUser" name="method" value="deactivateUser">
+  <label for="deactivateUser">Деактивировать пользователя</label><br>
+  <input type="radio" id="activateUser" name="method" value="activateUser">
+  <label for="activateUser">Активировать пользователя</label><br>
 </div>
 
 <div id="getAllUsersDiv" style="display:none;">
@@ -14,6 +18,16 @@
 <div id="getUserDiv" style="display:none;">
   <input [(ngModel)]="userId" placeholder="Введите ID пользователя">
   <button (click)="getUser()">Получить пользователя</button>
+</div>
+
+<div id="deactivateUserDiv" style="display:none;">
+  <input [(ngModel)]="userId" placeholder="Введите ID пользователя">
+  <button (click)="deactivateUser()">Деактивировать пользователя</button>
+</div>
+
+<div id="activateUserDiv" style="display:none;">
+  <input [(ngModel)]="userId" placeholder="Введите ID пользователя">
+  <button (click)="activateUser()">Активировать пользователя</button>
 </div>
 
 <div id="createUserDiv" style="display:none;">

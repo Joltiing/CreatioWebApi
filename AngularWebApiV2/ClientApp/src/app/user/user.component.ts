@@ -36,15 +36,31 @@ export class UserComponent {
   }
 
   postUser() {
-    let user = {
-      id: this.postId,
-      name: this.postName,
-      email: this.postEmail,
-      contactId: this.postContact,
-      accountId: this.postAccount
-    };
+    const user = [
+      this.postId,
+      this.postName,
+      this.postEmail,
+      this.postContact,
+      this.postAccount
+    ];
 
-    this.httpClient.put<number>(this.baseUrl + 'api/User/PostUser', user).subscribe(result => {
+    const paramNames = [
+       "id",
+       "name",
+       "email",
+       "contactId",
+       "accountId"
+    ];
+    
+    let params = "";
+    for (const param in user) {
+      if (user[param] != undefined && user[param] != "") {
+        params += `&${paramNames[param]}=${user[param]}`
+        console.log(`&${paramNames[param]}=${user[param]}`);
+      }      
+    }
+
+    this.httpClient.put<number>(this.baseUrl + 'api/User/PostUser?' + params, user).subscribe(result => {
       console.log(`Number of rows edited: ${result}`);
     }, error => console.error(error));
   }

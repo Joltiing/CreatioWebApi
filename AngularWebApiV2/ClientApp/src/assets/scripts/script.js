@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('getAllUsersDiv').style.display = 'none';
       document.getElementById('getUserDiv').style.display = 'none';
       document.getElementById('createUserDiv').style.display = 'none';
+      document.getElementById('deactivateUserDiv').style.display = 'none';
+      document.getElementById('activateUserDiv').style.display = 'none';
       document.getElementById(event.target.value + 'Div').style.display = 'block';
     });
   });

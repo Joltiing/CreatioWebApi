@@ -48,7 +48,6 @@ namespace AngularWebApi.Controllers
 		[HttpPut(Name = "PostUser")]
 		public int PostUser(Guid id, string name, Guid contactId, Guid accountId, string email)
 		{
-			throw new Exception(name + email);
 			var provider = new DbProvider();
 
 			var user = new SystemUser();
