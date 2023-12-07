@@ -10,55 +10,79 @@
   <input type="radio" id="activateUser" name="method" value="activateUser">
   <label for="activateUser">Активировать пользователя</label><br>
 </div>
-
+<mat-divider></mat-divider>
 <div id="getAllUsersDiv" style="display:none;">
-  <button (click)="getAllUsers()">Получить всех</button>
-</div>
+    <button mat-flat-button color="primary" (click)="getAllUsers()">Получить всех</button>
+  </div>
 
-<div id="getUserDiv" style="display:none;">
-  <input [(ngModel)]="userId" placeholder="Введите ID пользователя">
-  <button (click)="getUser()">Получить пользователя</button>
-</div>
+  <div id="getUserDiv" style="display:none;">
+    <mat-form-field>
+      <input matInput [(ngModel)]="userId" placeholder="Введите ID пользователя">
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <button mat-flat-button color="primary" (click)="getUser()">Получить пользователя</button>
+  </div>
 
-<div id="deactivateUserDiv" style="display:none;">
-  <input [(ngModel)]="userId" placeholder="Введите ID пользователя">
-  <button (click)="deactivateUser()">Деактивировать пользователя</button>
-</div>
 
-<div id="activateUserDiv" style="display:none;">
-  <input [(ngModel)]="userId" placeholder="Введите ID пользователя">
-  <button (click)="activateUser()">Активировать пользователя</button>
-</div>
+  <div id="deactivateUserDiv" style="display:none;">
+    <mat-form-field>
+      <input matInput [(ngModel)]="userId" placeholder="Введите ID пользователя">
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <button mat-flat-button color="primary" (click)="deactivateUser()">Деактивировать пользователя</button>
+  </div>
 
-<div id="createUserDiv" style="display:none;">
-  <form>
-    <label for="id">ID:</label><br>
-    <input [(ngModel)]="postId" type="text" id="id" name="id"><br>
-    <label for="name">Name:</label><br>
-    <input [(ngModel)]="postName" type="text" id="name" name="name"><br>
-    <label for="contactId">Contact ID:</label><br>
-    <input [(ngModel)]="postContact" type="text" id="contactId" name="contactId"><br>
-    <label for="accountId">Account ID:</label><br>
-    <input [(ngModel)]="postAccount" type="text" id="accountId" name="accountId"><br>
-    <label for="email">Email:</label><br>
-    <input [(ngModel)]="postEmail" type="email" id="email" name="email"><br>
-    <button (click)="postUser()">Создать пользователя</button>
-  </form>
-</div>
+  <div id="activateUserDiv" style="display:none;">
+    <mat-form-field>
+      <input matInput matInput [(ngModel)]="userId" placeholder="Введите ID пользователя">
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <button mat-flat-button color="primary" (click)="activateUser()">Активировать пользователя</button>
+  </div>
 
+  <div id="createUserDiv" style="display:none;">
+    <form>
+      <mat-form-field>
+        <mat-label>ID:</mat-label><br>
+        <input matInput [(ngModel)]="postId" type="text" id="id" name="id"><br>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <mat-form-field>
+        <mat-label>Name:</mat-label><br>
+        <input matInput [(ngModel)]="postName" type="text" id="name" name="name"><br>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <mat-form-field>
+        <mat-label>Contact ID:</mat-label><br>
+        <input matInput [(ngModel)]="postContact" type="text" id="contactId" name="contactId"><br>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <mat-form-field>
+        <mat-label>Account ID:</mat-label><br>
+        <input matInput [(ngModel)]="postAccount" type="text" id="accountId" name="accountId"><br>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <mat-form-field>
+        <mat-label>Email:</mat-label><br>
+        <input matInput [(ngModel)]="postEmail" type="email" id="email" name="email"><br>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <button mat-flat-button color="primary" (click)="postUser()">Создать пользователя</button>
+    </form>
+  </div>
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
-  <thead>
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let user of users">
-    <td>{{ user.id }}</td>
-    <td>{{ user.name }}</td>
-  </tr>
-  </tbody>
-</table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+      </tr>
+    </tbody>
+  </table>
 
-<script src="scripts.js" type="module"></script>
+  <script src="scripts.js" type="module"></script>

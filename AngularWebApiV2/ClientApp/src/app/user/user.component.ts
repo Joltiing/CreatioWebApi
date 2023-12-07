@@ -1,11 +1,15 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, NgModule } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css'] 
+  styleUrls: ['./user.component.css'],
 })
+
 export class UserComponent {
   users!: User[];
   httpClient!: HttpClient;
@@ -16,7 +20,22 @@ export class UserComponent {
   postEmail!: string;
   postContact!: string;
   postAccount!: string;
+  tabLoadTimes: Date[] = [];
 
+  ngAfterViewInit() {
+    console.log("afterinit");
+    setTimeout(() => {
+      console.log(1);
+    }, 1000);
+  }
+
+  getTimeLoaded(index: number) {
+    if (!this.tabLoadTimes[index]) {
+      this.tabLoadTimes[index] = new Date();
+    }
+
+    return this.tabLoadTimes[index];
+  }
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
       this.httpClient = http;
